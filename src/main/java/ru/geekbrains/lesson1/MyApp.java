@@ -46,14 +46,11 @@ public class MyApp {
         System.out.println("Hi, " + name + "!");
     }
 
-    static void whichYear (int a) {
-        if (a % 100 == 0 && a % 400 == 0)
-            System.out.println("високосный");
-        else if (a % 4 == 0 && a % 100 > 0)
-            System.out.println("високосный");
-        else if (a % 100 == 0)
-            System.out.println("обычный");
-        else
-            System.out.println("обычный");
+    static void whichYear (int year) {
+        if ((year % 100 != 0) && (year % 4 == 0) || (year % 400 == 0)) {
+            System.out.println("Год високосный");
+        } else {
+            System.out.println("Год не високосный");
+        }
     }
 }

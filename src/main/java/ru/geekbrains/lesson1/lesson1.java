@@ -1,6 +1,6 @@
 package ru.geekbrains.lesson1;
 
-public class MyApp {
+public class lesson1 {
     public static void main(String[] args) {
         byte byteVal = 127;
         int intVal = 1270000;

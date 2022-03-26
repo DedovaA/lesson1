@@ -24,7 +24,8 @@ public class lesson3task2 {
         do{
             attempt = scanner.nextLine();
             if (!attempt.equalsIgnoreCase(word)) {
-                for (int k = 0; k < word.toCharArray().length; k++) {
+                int length = Math.min(attempt.length(), word.length());
+                for (int k = 0; k < length; k++) {
                     if(attempt.charAt(k) == word.charAt(k))
                     hint[k] = attempt.charAt(k);
                 }

@@ -1,5 +1,7 @@
 package ru.geekbrains.lesson1;
 
+import java.util.Scanner;
+
 public class lesson1 {
     public static void main(String[] args) {
         byte byteVal = 127;

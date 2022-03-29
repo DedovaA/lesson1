@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 public class Lesson2 {
     public static void main(String[] args) {
-        task1();
-        task2();
-        task3();
-        task4();
-        task5();
-        System.out.println(task6(new int[]{2, 2, 2, 1, 2, 2, 10, 1})); //true
-        System.out.println(task6(new int[]{1, 1, 1, 2, 1})); //true
-        System.out.println(task6(new int[]{2, 2, 2, 1, 2, 2, 10, 2})); //false
-        task7(new int[]{1, 2, 3}, 1);
-        task7(new int[]{3, 5, 6, 1}, -2);
+//        task1();
+//        task2();
+//        task3();
+//        task4(5);
+//        task5();
+//        System.out.println(task6(new int[]{2, 2, 2, 1, 2, 2, 10, 1})); //true
+//        System.out.println(task6(new int[]{1, 1, 1, 2, 1})); //true
+//        System.out.println(task6(new int[]{2, 2, 2, 1, 2, 2, 10, 2})); //false
+//        task7(new int[]{1, 2, 3}, 1);
+//        task7(new int[]{3, 5, 6, 1}, -2);
     }
 
     static void task1 () {
@@ -45,15 +45,14 @@ public class Lesson2 {
         System.out.println(Arrays.toString(arr));
     }
 
-    static void task4 () {
-        int[][] arr = new int[4][4];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (i == j) arr[i][j] = 1;
+    static void task4 (int size){
+        int[][] arr = new int[size][size];
+        for (int y = 0, end = size; y < size; y++, end--) {
+            for (int x = 0; x < size; x++) {
+                if (y == x || x == end-1) arr[y][x] = 1;
+                System.out.print(arr[y][x] + "  ");
             }
-        }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(Arrays.toString(arr[i]));
+            System.out.println();
         }
     }
 

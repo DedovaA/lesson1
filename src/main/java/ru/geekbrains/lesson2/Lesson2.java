@@ -1,5 +1,7 @@
 package ru.geekbrains.lesson2;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 
 public class Lesson2 {
@@ -7,13 +9,13 @@ public class Lesson2 {
 //        task1();
 //        task2();
 //        task3();
-//        task4(5);
+//        task4(11);
 //        task5();
 //        System.out.println(task6(new int[]{2, 2, 2, 1, 2, 2, 10, 1})); //true
 //        System.out.println(task6(new int[]{1, 1, 1, 2, 1})); //true
 //        System.out.println(task6(new int[]{2, 2, 2, 1, 2, 2, 10, 2})); //false
-//        task7(new int[]{1, 2, 3}, 1);
-//        task7(new int[]{3, 5, 6, 1}, -2);
+        task7(new int[]{1, 2, 3}, 1);
+        task7(new int[]{3, 5, 6, 1}, -2);
     }
 
     static void task1 () {
@@ -81,8 +83,10 @@ public class Lesson2 {
         return false;
     }
 
-    static void task7 (int[] arr, int n){
+    static void task7 (int @NotNull [] arr, int n){
         int[] array = arr;
+
+        n = (arr.length + n % arr.length) % arr.length;
 
         int temp;
         if (n > 0) {

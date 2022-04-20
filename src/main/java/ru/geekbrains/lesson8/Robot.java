@@ -13,16 +13,20 @@ public class Robot implements Competitor {
     @Override
     public boolean run(int length) {
         result = maxRun >= length;
-        if (result) System.out.printf("Робот пробежал %d м.\n", length);
-        else System.out.println("Робот выбыл.");
+        if (result)
+            System.out.printf("Робот пробежал %d м.\n", length);
+        else
+            System.out.println("Робот выбыл.");
         return result;
     }
 
     @Override
     public boolean jump(int height) {
         result = maxJump >= height;
-        if (result) System.out.printf("Робот перепрыгнул %d м.\n", height);
-        else System.out.println("Робот выбыл.");
+        if (result)
+            System.out.printf("Робот перепрыгнул %d м.\n", height);
+        else
+            System.out.println("Робот выбыл.");
         return result;
     }
 

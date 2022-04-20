@@ -13,16 +13,20 @@ public class Human implements Competitor {
     @Override
     public boolean run(int length) {
         result = maxRun >= length;
-        if (result) System.out.printf("Человек пробежал %d м.\n", length);
-        else System.out.println("Человек выбыл.");
+        if (result)
+            System.out.printf("Человек пробежал %d м.\n", length);
+        else
+            System.out.println("Человек выбыл.");
         return result;
     }
 
     @Override
     public boolean jump(int height) {
         result = maxJump >= height;
-        if (result) System.out.printf("Человек перепрыгнул %d м.\n", height);
-        else System.out.println("Человек выбыл.");
+        if (result)
+            System.out.printf("Человек перепрыгнул %d м.\n", height);
+        else
+            System.out.println("Человек выбыл.");
         return result;
     }
 

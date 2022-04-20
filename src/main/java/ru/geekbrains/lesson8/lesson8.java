@@ -20,7 +20,9 @@ public class lesson8 {
         };
 
         while (competitors.size() != 1) {
+            int counter = 0;
             for (Obstacle obstacle: obstacles) {
+                System.out.println("stage " + (++counter));
                 for (int i = 0; i < competitors.size(); i++) {
                     if (!obstacle.overcome(competitors.get(i))) competitors.remove(competitors.get(i));
                 }

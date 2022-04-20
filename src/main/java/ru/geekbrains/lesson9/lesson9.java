@@ -1,16 +1,18 @@
 package ru.geekbrains.lesson9;
 
+import org.jetbrains.annotations.NotNull;
+
 public class lesson9 {
     public static void main(String[] args) {
-        //Инициализируем массив
+        //Инициализируем квадратный массив 4х4
         String[][] strings = new String[4][4];
-        for (int i = 0; i < strings.length; i++) {
-            for (int j = 0; j < strings[i].length; j++) {
-                strings[i][j] = "1";
-            }
-        }
+        //Инициализируем массив треугольный
+        String[][] strings_ = createArray();
+        initArray(strings);
+        initArray(strings_);
+
         //один из элементов массива изменили
-        strings[2][3] = "*";
+        strings[2][3] = "/";
         //пытаемся просуммировать массив
         try {
             System.out.println(sum(strings));
@@ -21,10 +23,25 @@ public class lesson9 {
         }
     }
 
-    public static int sum (String[][] strings) throws MyArraySizeException, MyArrayDataException {
-        if (strings.length != 4 || strings[0].length != 4) {
-            throw new MyArraySizeException("Неверный размер массива.");
+    private static void initArray(String[][] strings) {
+        for (int i = 0; i < strings.length; i++) {
+            for (int j = 0; j < strings[i].length; j++) {
+                strings[i][j] = "1";
+            }
         }
+    }
+
+    @NotNull
+    private static String[][] createArray() {
+        String[][] strings_ = new String[4][];
+        for (int i = 0; i < 4; i++)
+            strings_[i] = new String[i];
+        return strings_;
+    }
+
+    static int sum(String[][] strings) throws MyArraySizeException, MyArrayDataException {
+        if (!isArraySizeValid(strings))
+            throw new MyArraySizeException("Неверный размер массива.");
         int sum = 0;
         for (int i = 0; i < strings.length; i++) {
             for (int j = 0; j < strings[i].length; j++) {
@@ -36,6 +53,17 @@ public class lesson9 {
             }
         }
         return sum;
+    }
+
+    static boolean isArraySizeValid(String[][] strings) {
+        if (strings.length != 4) {
+            return false;
+        }
+        for (int i = 0; i < strings.length; i++) {
+            if (strings[i].length != 4)
+                return false;
+        }
+        return true;
     }
 }
 

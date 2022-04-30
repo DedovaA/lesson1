@@ -18,7 +18,7 @@ public class Box <T extends Boxable> {
         for(T fruit: fruits) {
             weight += fruit.getWeight();
         }
-        return fruits.isEmpty() ? 0f : weight;
+        return  weight;
     }
 
     public boolean compare (Box box){

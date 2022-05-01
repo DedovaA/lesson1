@@ -59,7 +59,7 @@ public class lesson12 {
         System.out.println(System.currentTimeMillis() - start);
     }
 
-    static void method3 () {
+    static void method3 () throws ExecutionException, InterruptedException {
         float[] arrFull = createFloatArray(SIZE);
 
         long start = System.currentTimeMillis();
@@ -69,11 +69,18 @@ public class lesson12 {
         System.arraycopy(arrFull, HALF, arr2, 0, HALF);
 
         ExecutorService executorService = Executors.newFixedThreadPool(2);
-        executorService.execute(() -> {
+        Future task1 = executorService.submit((Callable) () -> {
             calculate(arr1);
+            return arr1;
+        });
+        Future task2 = executorService.submit((Callable) () -> {
             calculate(arr2);
+            return arr2;
         });
         executorService.shutdown();
+        task1.get();
+        task2.get();
+
 
         System.arraycopy(arr1, 0, arrFull, 0, HALF);
         System.arraycopy(arr2, 0, arrFull, HALF, HALF);

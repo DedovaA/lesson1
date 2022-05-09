@@ -3,12 +3,19 @@ package ru.geekbrains.lesson13;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Для своевременного вывода "ВАЖНЫХ ОБЪЯВЛЕНИЙ" используются два CountDownLatch.
+ * Для одновременного старта участников используется CyclicBarrier.
+ * Для определения победителя используется AtomicInteger.
+ * Для регулирования пропускной способности этапов используется Semaphore.
+ */
+
 public class MainClass {
     public static final int CARS_COUNT = 4;
-    public static AtomicInteger atomicInt = new AtomicInteger(0);
-    public static CyclicBarrier barrier = new CyclicBarrier(CARS_COUNT);
-    public static CountDownLatch start = new CountDownLatch(CARS_COUNT);
-    public static CountDownLatch finish = new CountDownLatch(CARS_COUNT);
+    public static AtomicInteger atomicInt = new AtomicInteger(0);//
+    public static CyclicBarrier barrier = new CyclicBarrier(CARS_COUNT);//
+    public static CountDownLatch start = new CountDownLatch(CARS_COUNT);//
+    public static CountDownLatch finish = new CountDownLatch(CARS_COUNT);//
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Подготовка!!!");
@@ -26,7 +33,7 @@ public class MainClass {
         System.out.println("\nВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
 
 
-        finish.await();
+        finish.await();//
         System.out.println("\nВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
     }
 }

@@ -34,11 +34,9 @@ public class Car implements Runnable {
             System.out.println(this.name + " готов");
             start.countDown();
             barrier.await();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         for (int i = 0; i < race.getStages().size(); i++) {
             try {
                 race.getStages().get(i).sem.acquire();
